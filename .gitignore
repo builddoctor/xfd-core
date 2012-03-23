@@ -1,0 +1,14 @@
+.DS_Store
+*.log
+*.tmp
+*.swp
+tags
+
+# don't need to track our minified file.
+public/assets/js/xfd-min.js
+
+# don't need to track generated js files.
+public/*.js
+target
+SpecRunner.html
+TEST-*.xml
