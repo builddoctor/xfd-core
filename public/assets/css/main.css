@@ -46,8 +46,8 @@
 /* 1.BODY */
 html {height: 100%}
 body {
-    background: #000000;
-    color: #888;
+    background: #FFF;
+    color: #222;
     font-size: 100%; /* Base font size: 16px */
     font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin: 0;
