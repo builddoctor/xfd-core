@@ -1,0 +1,291 @@
+/**
+ * eXtreme Feedback Device (XFD) is a Build Radiator for Continuous
+ * Integration servers. Copyright (C) 2010-2012 The Build Doctor Limited.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Name: eXtreme Feedback Device
+ * Description: Global Style Sheet for XFD
+ * Version: 1.0
+ *
+ * CONTENTS:
+ *   1.BODY
+ *   2.HEADINGS
+ *   3.LINKS
+ *   4.PARAGRAPHS
+ *   5.LISTS
+ *   6.QUOTES
+ *   7.TABLES
+ *     7.1.THEAD
+ *     7.2.TBODY
+ *     7.3.TFOOT
+ *   8.LAYOUT
+ *     8.1.STATUS BAR
+ *     8.2.FURNITURE
+ *     8.3.FLASH CONTAINER
+ *     8.4.PROJECT
+ *     8.5.FOOTER
+ *   9.SECTIONS
+ */
+
+/* Imports */
+@import url("reset.css");
+@import url("facebox.css");
+
+/* 1.BODY */
+html {height: 100%}
+body {
+    background: #000000;
+    color: #888;
+    font-size: 100%; /* Base font size: 16px */
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    height: 100%;
+}
+
+/* ACCESSIBLE HEADER */
+ul#nav-access {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+/* 2.HEADINGS */
+/* Base Font Size: 16px */
+h2 {font-size: 1.5em}   /* 24px */
+h3 {font-size: 1.375em} /* 22px */
+h4 {font-size: 1.25em}  /* 20px */
+h5 {font-size: 1.125em} /* 18px */
+h6 {font-size: 1em}     /* 16px */
+
+h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    margin-bottom: .8em;
+}
+
+h3#notice {color: #E16A37}
+h3#error {background: yellow}
+
+/* 3.LINKS */
+a {}
+a:focus {outline: 1px dashed #C7C7C7}
+a img {
+    border: 0px;
+    text-decoration: none;
+}
+a:link, a:visited {}
+a:hover {}
+a:active {}
+
+/* 4.PARAGRAPHS */
+p {
+    margin-bottom: 1.5em;
+    line-height: 1.4;
+}
+
+strong, b {font-weight: bold}
+em, i {font-style: italic}
+
+/* CODE and PRE have font-family due to emphasis */
+code, pre {
+    font-family: Monaco, "Andale Mono", "Courier New", "Courier", monospace;
+    font-size: 0.75em;
+}
+
+/* 5.LISTS */
+ul {
+    list-style: outside disc;
+    margin: 1em 0 1.5em 1.5em;
+}
+ol {
+    list-style: outside decimal;
+    margin: 1em 0 1.5em 1.5em;
+}
+
+dl {margin: 0 0 1.5em 0}
+dt {font-weight: bold}
+dd {margin-left: 1.5em}
+
+/* 6.QUOTES */
+blockquote {font-style: italic}
+cite {}
+q {}
+
+/* 7.TABLES */
+table {
+    margin: .5em auto 1.5em auto;
+    width: 98%;
+}
+
+/* 7.1.THEAD */
+thead th {
+    padding: .5em .4em;
+    text-align: left;
+}
+thead td {}
+
+/* 7.2.TBODY */
+tbody td {padding: .5em .4em}
+tbody th {}
+tbody .alt td {}
+tbody .alt th {}
+
+/* 7.3.TFOOT */
+tfoot th {}
+tfoot td {}
+
+/***** 8.LAYOUT *****/
+div#container {
+    margin: 0;
+    padding: 0;
+}
+
+/* 8.1.STATUS BAR */
+div#container div#status-bar, div.progress-bar {
+}
+div#container div#status-bar .status-bar-element, .progress-bar-element {
+}
+
+/* 8.2.FURNITURE */
+div#container div#furniture {}
+div#container div#furniture div#doc {}
+div#container div#furniture ul#nav {}
+
+div#container div#furniture ul#nav li.left {}
+div#container div#furniture ul#nav li.left a.button {}
+div#container div#furniture ul#nav li.left a.button:hover {}
+div#container div#furniture ul#nav li.left a.button:active {}
+
+div#container div#furniture ul#nav li#filter {}
+div#container div#furniture ul#nav li#filter form fieldset input {}
+
+div#container div#furniture ul#nav li#project-stats {}
+
+/* 8.3.FLASH CONTAINER */
+div#container div#flash-container {}
+div#container div#flash-container.notice {}
+div#container div#flash-container.error {}
+div#container div#flash-container.warning {}
+div#container div#flash-container.error, div#container div#flash-container.notice, div#container div#flash-container.warning {}
+
+/* 8.4.PROJECTS */
+div#container ul#projects {}
+div#container ul#projects h3 {}
+div#container ul#projects li.job {}
+div#container ul#projects li.job img {}
+div#container ul#projects li.job a.project-name {}
+div#container ul#projects li.job span.time-elapsed {}
+
+/* 8.5.FOOTER */
+div#container div#footer {}
+div#container div#footer p {}
+div#container div#footer p span#version-string {display: none}
+
+/***** 9.SECTIONS *****/
+span#name {font-weight: bold}
+span#copy {float: right}
+
+.green-bar {background-color: #63B045}
+.red-bar {background-color: #C93D43}
+.gray-bar {background-color: #070707}
+.light-gray-bar {background-color: #555555}
+
+.progress-bar {}
+div.red .progress-bar {}
+div.green .progress-bar {}
+div.grey .progress-bar {}
+
+.progress-bar .ui-progressbar-value {}
+
+.green, .green a:link {}
+.red, .red a:link {}
+.grey, .grey a:link {}
+
+.building {}
+.building a:link {}
+
+div.disabled {}
+
+.job-message {}
+
+.previous-build-stats {}
+
+.throbber {}
+.throbber-green {}
+.throbber-grey {}
+.throbber-red {}
+
+div.job.green, div.job.grey {}
+div.job.green .job-content-bottom, div.job.grey .job-content-bottom {}
+div.job.green .job-content-bottom * , div.job.grey .job-content-bottom * {}
+div.job.green a.project-name, div.job.grey a.project-name {}
+
+.redface {}
+.greenface {}
+.greyface {}
+.buildingface {}
+
+/* For Facebox */
+#facebox { max-width: 800px }
+#facebox select, #facebox input {
+    -moz-border-radius: 2px;
+    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -moz-padding-start: 2px;
+    -moz-user-select: text;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: text;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    margin: 2px;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#facebox select {
+    -webkit-appearance: button;
+    background-image: -moz-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+#faceboc input {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+}
+#facebox input[type='submit'] {
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    background: -moz-linear-gradient(#E0E0E0, #DBDBDB 40%, #CCCCCC);
+    background: -webkit-linear-gradient(#E0E0E0, #DBDBDB 40%, #CCCCCC);
+}
+#facebox input[type='submit']:active {
+    background: -moz-linear-gradient(#CCCCCC, #DBDBDB 40%, #E0E0E0);
+    background: -webkit-linear-gradient(#CCCCCC, #DBDBDB 40%, #E0E0E0);
+}
+#facebox input[disabled] {
+    border: 1px solid #E5E5E5;
+    background-color: #EEE;
+}
+#facebox input:focus, #facebox textarea:focus, #facebox select:focus {
+    outline: none;
+    border: 2px solid #058cf5;
+    margin: 1px;
+}
