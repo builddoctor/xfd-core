@@ -119,7 +119,6 @@ class @ProjectController
 
     # Track whether this feature is being used; only on first hit.
     if @firstFilter == false
-      mpq.track("Filtering projects")
       @firstFilter = true
 
     if s.length == 0

@@ -50,13 +50,7 @@ configClickHandler = (ev) ->
       set_config_value name, "context"
       set_config_value name, "port"
   ), 1000
-  mpq.track("Opened config form")
   true
-
-if mpq is undefined
-  mpq =
-    track: ->
-      null
 
 $(document).ready ->
   ApplicationController::clearLocalStorage(true)
@@ -85,8 +79,6 @@ $(document).ready ->
   versions.checkVersion()
   versions.renderVersion()
 
-  mpq.track("Started up XFD")
-
   # Setup timers.
   projectsRenderTimer = setInterval (->
     projects.render()
@@ -104,8 +96,6 @@ $(document).ready ->
   window.setupForm = ->
     CONFIG.init(projects)
     $(document).trigger('close.facebox')
-
-    mpq.track("Submitted confirm form (KTHX)")
 
     # Clear the interval on form submission.
     clearInterval(projectsRenderTimer)
