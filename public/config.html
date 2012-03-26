@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+    Copyright 2010 Build Doctor Limited. All rights reserved.
+-->
+<head>
+    <title>XFD Config</title>
+    <meta http-equiv="Content-type" content="text/html; charset=us-ascii" />
+    <meta name="description" content="eXtreme Feedback Device for Hudson, TeamCity and other Continuous Integration systems" />
+</head>
+<body>
+    <div id="config">
+        <form id="config_form" action="javascript:catchForm();">
+            <fieldset>
+                <label for="engine">I have a</label>
+                <select name="engine" id="engine" onchange="handleSelect(this);">
+                    <option selected="selected" value="hudson">Hudson</option>
+                    <option value="hudson">Jenkins</option>
+                    <option value="cruisecontrol">Cruisecontrol</option>
+                    <option value="teamcity">Teamcity</option>
+                    <option value="cruisecontrol.net">Cruisecontrol.NET</option>
+                    <option value="cruisecontrol.rb">Cruisecontrol.rb</option>
+                    <option value="cruisecontrol-dashboard">Cruisecontrol-dashboard</option>
+                    <option value="go">Go</option>
+                    <option value="cctray">CCTray</option>
+                </select>
+                
+                <label for="host-field">server, running on host</label>
+                <input type="text" name="host" id="host-field" value="xfd.build-doctor.com" />
+                
+                <label for="port">with this TCP port</label>
+                <input type="text" name="port" id="port" value="80" />
+                
+                <label for="context">and this URI</label>
+                <input type="text" name="context" id="context" value="/hudson" />
+                <label for="username">and this username</label>
+                <input type="text" name="username" id="username" value="" />
+
+                <label for="password">and this password</label>
+                <input type="password" name="password" id="password" value="" />
+
+                <label for="interval">and I want it to refresh every</label>
+                <input type="text" name="interval" id="interval" value="60" />
+                
+                <label>seconds.</label>
+                <input id="config-submit" type="submit" value="KTHX." />
+            </fieldset>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+      function catchForm() {
+        window.setupForm();
+      }
+
+      function handleSelect(obj) {
+        var user = document.getElementById("username");
+        var pass = document.getElementById("password");
+
+        if (obj.value == "hudson" || obj.value == "jenkins") {
+          user.disabled = false;
+          pass.disabled = false;
+        } else {
+          user.disabled = true;
+          pass.disabled = true;
+        }
+      }
+    </script>
+</body>
+</html>

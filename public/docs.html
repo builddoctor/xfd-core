@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+    Copyright 2010 Build Doctor Limited. All rights reserved.
+-->
+<head>
+    <title>eXtreme Feedback Device - Documentation</title>
+    <meta http-equiv="Content-type" content="text/html; charset=us-ascii" />
+    <meta name="description" content="eXtreme Feedback Device for Hudson, TeamCity and other Continuous Integration systems" />
+    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <div id="doc">
+        <p><strong>eXtreme Feedback Device</strong> helps to keep your 
+            software project on track by telling everybody in your project 
+            room if your project's builds are failing.  
+            XFD is a Build Radiator for Continuous Integration servers, like 
+            Hudson, CruiseControl or TeamCity.</p>
+
+        <p><strong>How do I use it?</strong>
+            Load the URL '<a href="http://xfd.build-doctor.com">http://xfd.build-doctor.com</a>' in a
+            modern browser (we like Google Chrome), on a computer display where people can see it. We suggest that
+            you put it near the water or coffee points in your office so
+            people can notice when walk past it. By default this service 
+            connects to our
+            'mock' Hudson service to show you what it does. To change these
+            settings, click on the "Config" button, and tell us about
+            your Continuous Integration server. Click the
+            'Update' button, and you should see your CI results on the
+            big screen.</p>
+        <p>You can also bookmark a URL that has the configuration
+            embedded in it.</p>
+        <ul>
+            <li><strong>engine</strong> - the Continuous Integration server that you want to use - defaults to Hudson</li>
+            <li><strong>host</strong> - the hostname that the CI server is installed on</li>
+            <li><strong>port</strong> - the TCP port that the CI Server listens on</li>
+            <li><strong>context root</strong> - where the CI webapp is installed</li>
+            <li><strong>interval</strong> - how often to refresh, in seconds</li>
+        </ul>
+        <p>Example: <a href="http://xfd.build-doctor.com?port=80&amp;host=hudson">http://xfd.build-doctor.com?port=80&amp;host=hudson</a></p>
+        <p>Support: <a href="http://twitter.com/builddoctor" title="build doctor">Tweet me</a> or <a href="mailto:medic@build-doctor.com?Subject=XFD%20message">Email me</a></p>
+
+        <p><strong>Why does this help?</strong> 
+            You probably shouldn't deploy your code to production and 
+            attempt to make money with it if you have a broken build.
+            Everyone on your project team should know if you're ready to 
+            hit the launch button or not.  It's their right as a team 
+            member, and it's critical information.  Nobody expects the
+            build to be green all the time.  It should be green most of the time.              If it's not, that could be a symptom of other issues.
+
+        <p><strong>What makes XFD different?</strong> It runs entirely
+            inside a browser (we suggest Firefox or Chrome). Why?g Because
+            we beleive that doing the right thing should be easy, and you
+            shouldn't have to mess around with your Continuous Integration
+            server to get this information.</p>
+
+        <p><strong>What Continuous Integration servers does XFD support?</strong> Out of the box, we support:</p>
+        <ul>
+            <li>The <a href="http://hudson-ci.org/" title="Hudson CI">Hudson</a> CI server.</li>
+            <li>Our fork of <a href="http://github.com/builddoctor/cijoe" title="CI Joe">CI Joe</a> (0.9.0 or later has our patch)</li>
+            <li>Everyone's Grand-daddy, <a href="http://cruisecontrol.sourceforge.net">CruiseControl</a> (from 2.8.4, using the original Reporting application).</li>
+        </ul>
+        <p>With a plugin, we support <a href="http://www.jetbrains.com/teamcity/">Team City</a>. When installing the <a href="https://github.com/cread/tcjson">tcjson</a> plugin, remember to enable guest access.</p>
+        <p>With our easy-to-install <a href="http://ccproxy.chris-read.net/">CCTray Proxy</a>, we support:</p>
+        <ul>
+            <li><a href="http://confluence.public.thoughtworks.org/display/CCNET/Welcome+to+CruiseControl.NET">CruiseControl.NET</a> - the first port of CruiseControl and still popular with the .NET community.</li>
+            <li><a href="http://cruisecontrolrb.thoughtworks.com/">CruiseControl.RB</a> - the Ruby equivalent of the above.</li>
+            <li><a href="http://cruisecontrol.sourceforge.net">CruiseControl</a> - if you use the newer Dashboard application, you'll need to use cctray rather than our default support.</li>
+            <li><a href="http://www.thoughtworks-studios.com/go-agile-release-management">Go</a> - also known as Cruise.</li>
+        </ul>
+        <p><strong>What else does it do?</strong>
+
+            We're working on a whole host of features to help you better 
+            visualise information about your projects. We think that the needs of 
+            software teams aren't being met, and we are working on ways 
+            to help improve decision-making so you don't have to.
+        </p>
+
+        <p><strong>How will you protect my information?</strong> 
+            XFD runs on your browser and connects to your Continuous 
+            Integration server directly.  We don't store any project information 
+            on our systems.
+
+        </p>
+    </div>
+</body>
+</html>
