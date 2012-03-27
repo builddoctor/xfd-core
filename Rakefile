@@ -18,7 +18,6 @@ task :coffeescript => :target do
   
   beans = []
   compiled = ""
-  # sh "coffee -j target/assets/js/xfd.js -c public/assets/js/"
   Dir['public/assets/js/*/*.coffee'].each { |f| beans << f }
   Dir['public/assets/js/*.coffee'].each { |f| beans << f }
 
