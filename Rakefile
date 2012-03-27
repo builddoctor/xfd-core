@@ -2,6 +2,8 @@ require 'rake/clean'
 
 require 'rubygems'
 require 'coffee-script'
+require 'erb'     
+require 'yaml'
 
 CLEAN.include(['*.log', 'public/*.js', 'target',
                'SpecRunner.html', 'TEST-*.xml'])
@@ -95,4 +97,20 @@ task :midas do
     sh "sed -i '' 's/  /  /g' #{f}"
     sh "sed -i '' 's/ $//' #{f}"
   end
+end
+
+task :jasmine => [:jslibs, :coffeescript] do
+  css_files = Dir['lib/jasmine-1.0.1/jasmine.css']         
+  jasmine_files = ['jasmine.js','jasmine-html.js'].map { |f|
+    "lib/jasmine-1.0.1/" + f
+  }
+  Dir['lib/jasmine-reporters/*.js'].each { |f| jasmine_files << f } 
+  
+  js_files = YAML::load(File.read("spec/javascripts/support/jasmine.yml"))['src_files'].map {|f| 'public/' + f }
+
+  spec_files = Dir['spec/javascripts/*.js']
+  template = ERB.new(File.read('spec/SpecRunner.html.erb')).result(binding)
+  File.open('SpecRunner.html', 'w+') { |f| f << template } 
+
+  #`open SpecRunner.html`
 end
