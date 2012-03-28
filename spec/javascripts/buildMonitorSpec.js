@@ -18,17 +18,10 @@
 describe('build monitor', function () {
   var buildMonitorController;
 
+  var fixtures_dir = 'spec/assets/fixtures/';
+
   beforeEach(function () {
-    var baseDir;
-    if (window.location.protocol.match(/file:/)) {
-      baseDir = window.location.pathname.replace('SpecRunner.html',
-                                                 '');
-    } else { 
-      baseDir = '';
-    }
-    var assetDir = baseDir + 'spec/assets/fixtures';
-    loadFixtures(assetDir + '/status-bar-initial.html',
-                 assetDir + '/builds.html');
+
     buildMonitorController = new BuildMonitorController();
   });
 
@@ -38,10 +31,10 @@ describe('build monitor', function () {
     BuildMonitor.failCount = 1;
 
     var quantised = BuildMonitor.quantise();
-    $("#status-bar").replaceWith(buildMonitorController.renderStatusBar());
     expect(quantised.green).toEqual(5);
     expect(quantised.red).toEqual(5);
     expect(quantised.grey).toEqual(0);
+
   });
 
   it('should have 1 green divs and 9 red divs if 1 build is green and 9 are red', function () {
@@ -50,7 +43,6 @@ describe('build monitor', function () {
     BuildMonitor.failCount = 9;
 
     var quantised = BuildMonitor.quantise();
-    $("#status-bar").replaceWith(buildMonitorController.renderStatusBar());
     expect(quantised.green).toEqual(1);
     expect(quantised.red).toEqual(9);
     expect(quantised.grey).toEqual(0);
@@ -62,7 +54,6 @@ describe('build monitor', function () {
     BuildMonitor.failCount = 9;
 
     var quantised = BuildMonitor.quantise();
-    $("#status-bar").replaceWith(buildMonitorController.renderStatusBar());
     expect(quantised.green).toEqual(2);
     expect(quantised.red).toEqual(8);
     expect(quantised.grey).toEqual(0);
@@ -74,7 +65,6 @@ describe('build monitor', function () {
     BuildMonitor.failCount = 10;
 
     var quantised = BuildMonitor.quantise();
-    $("#status-bar").replaceWith(buildMonitorController.renderStatusBar());
     expect(quantised.green).toEqual(2);
     expect(quantised.red).toEqual(8);
     expect(quantised.grey).toEqual(0);
@@ -86,7 +76,6 @@ describe('build monitor', function () {
     BuildMonitor.failCount = 9;
 
     var quantised = BuildMonitor.quantise();
-    $("#status-bar").replaceWith(buildMonitorController.renderStatusBar());
     expect(quantised.green).toEqual(2);
     expect(quantised.red).toEqual(8);
     expect(quantised.grey).toEqual(0);
@@ -98,7 +87,6 @@ describe('build monitor', function () {
     BuildMonitor.failCount = 10;
 
     var quantised = BuildMonitor.quantise();
-    $("#status-bar").replaceWith(buildMonitorController.renderStatusBar());
     expect(quantised.green).toEqual(1);
     expect(quantised.red).toEqual(9);
     expect(quantised.grey).toEqual(0);

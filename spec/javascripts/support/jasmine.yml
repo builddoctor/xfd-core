@@ -14,19 +14,17 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 src_files:
-  - ../target/assets/js/xfd-libs.js
-  - assets/js/resources/jasmine-jquery.js
-  - assets/js/resources/ejs_0.9_alpha_1_production.js
-  - ../target/assets/js/xfd.js
+  - target/assets/js/xfd-libs.js
+  - public/assets/js/resources/jasmine-jquery.js
+  - public/assets/js/resources/ejs_0.9_alpha_1_production.js
+  - target/assets/js/xfd.js
 
-stylesheets:
-  - assets/css/main.css
-  - assets/css/builds.css
+#stylesheets:
 
-helpers:
+#helpers:
 
-spec_files:
+#spec_files:
 
-src_dir: public
+#src_dir: 
 
-spec_dir:
+#spec_dir:

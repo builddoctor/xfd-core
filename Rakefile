@@ -99,18 +99,19 @@ task :midas do
   end
 end
 
-task :jasmine => [:jslibs, :coffeescript] do
-  css_files = Dir['lib/jasmine-1.0.1/jasmine.css']         
-  jasmine_files = ['jasmine.js','jasmine-html.js'].map { |f|
-    "lib/jasmine-1.0.1/" + f
-  }
-  Dir['lib/jasmine-reporters/*.js'].each { |f| jasmine_files << f } 
-  
-  js_files = YAML::load(File.read("spec/javascripts/support/jasmine.yml"))['src_files'].map {|f| 'public/' + f }
+begin
+  require 'jasmine'
+  load 'jasmine/tasks/jasmine.rake'
+rescue LoadError
+  task :jasmine do
+    abort "Jasmine is not available. In order to run jasmine, you must: (sudo) gem install jasmine"
+  end
+end
 
-  spec_files = Dir['spec/javascripts/*.js']
-  template = ERB.new(File.read('spec/SpecRunner.html.erb')).result(binding)
-  File.open('SpecRunner.html', 'w+') { |f| f << template } 
-
-  #`open SpecRunner.html`
+task :travis do
+  ["rake jslibs coffeescript jasmine:ci"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+  end
 end

@@ -21,7 +21,11 @@ describe('Project Controller', function () {
 
     beforeEach(function () {
       project = new ProjectController();
-      $("<div id=\"container\"><ul id=\"projects\"></ul></div>").appendTo("body");
+
+      if ($("div#container ul#projects").length === 0) {
+        $("<div id=\"container\"><ul id=\"projects\"></ul></div>").appendTo("body");
+      }
+
       container = $("div#container ul#projects");
     });
 

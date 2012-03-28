@@ -63,7 +63,6 @@ $(document).ready ->
   buildMonitor = new BuildMonitorController
   projects = new ProjectController
 
-  $.facebox.settings.loadingImage = "/assets/images/loading.gif"
   $("a[rel*=facebox]").facebox()
   queryString = $.query
   docButton = $("#doc-button")

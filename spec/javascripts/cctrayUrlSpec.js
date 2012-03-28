@@ -25,22 +25,22 @@ describe('cctray', function () {
   });
 
   it('should have a default url', function() {
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:/hudson?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/hudson?jsonp=?');
   });
 
   it('should have a url with a different context root if you tell it', function() {
     config.context="/harry";
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:/harry?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/harry?jsonp=?');
   });
 
   it('should cope with chrome passing a trailing hash on the context', function() { 
     config.context="/ci#";
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:/ci?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/ci?jsonp=?');
   });
 
   it('should cope with chrome passing escaped paths hash on the context', function() { 
     config.context="%2Fhudson";
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:/hudson?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/hudson?jsonp=?');
   });
 
   it('should have a url with a different port root if you tell it', function() {

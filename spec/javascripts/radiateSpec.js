@@ -55,7 +55,7 @@ describe('CONFIG', function () {
     expect(CONFIG.selectEngine('hudson').name).toEqual('hudson');
     expect(CONFIG.selectEngine('hudson').defaultUri).toEqual('/hudson');
     expect(CONFIG.selectEngine('hudson').defaultHost).toEqual('localhost');
-    expect(CONFIG.selectEngine('hudson').defaultPort).toEqual("");
+    expect(CONFIG.selectEngine('hudson').defaultPort).toEqual("8888");
   });
 
   /*
