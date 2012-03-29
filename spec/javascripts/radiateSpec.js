@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 describe('CONFIG', function () {
+  var config = {'username': 0, 'password': 0};
+
   beforeEach(function () {
     delete config.username;
     delete config.password;
@@ -51,11 +53,14 @@ describe('CONFIG', function () {
     expect(config.lookupParam).toHaveBeenCalled();
   });
 
-  it('should select Hudson given the param hudson', function() { 
+  it('should select Hudson given the param hudson', function() {
+    var url = document.location.hostname;
+    var port = document.location.port;
+
     expect(CONFIG.selectEngine('hudson').name).toEqual('hudson');
     expect(CONFIG.selectEngine('hudson').defaultUri).toEqual('/hudson');
-    expect(CONFIG.selectEngine('hudson').defaultHost).toEqual('localhost');
-    expect(CONFIG.selectEngine('hudson').defaultPort).toEqual("8888");
+    expect(CONFIG.selectEngine('hudson').defaultHost).toEqual(url);
+    expect(CONFIG.selectEngine('hudson').defaultPort).toEqual(port);
   });
 
   /*

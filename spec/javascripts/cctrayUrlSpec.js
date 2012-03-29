@@ -16,6 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 describe('cctray', function () {
+  var url = document.location.hostname;
+  var port = document.location.port;
+  var host = url + ':' + port;
   var config;
 
   beforeEach(function () {
@@ -25,27 +28,27 @@ describe('cctray', function () {
   });
 
   it('should have a default url', function() {
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/hudson?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/'+host+'/hudson?jsonp=?');
   });
 
   it('should have a url with a different context root if you tell it', function() {
     config.context="/harry";
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/harry?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/'+host+'/harry?jsonp=?');
   });
 
   it('should cope with chrome passing a trailing hash on the context', function() { 
     config.context="/ci#";
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/ci?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/'+host+'/ci?jsonp=?');
   });
 
   it('should cope with chrome passing escaped paths hash on the context', function() { 
     config.context="%2Fhudson";
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8888/hudson?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/'+host+'/hudson?jsonp=?');
   });
 
   it('should have a url with a different port root if you tell it', function() {
     config.port="8080";
-    expect(CCTray.url(config)).toEqual('http://localhost:6969/localhost:8080/hudson?jsonp=?');
+    expect(CCTray.url(config)).toEqual('http://localhost:6969/'+url+':8080/hudson?jsonp=?');
   });
 
   it('should have a url with a different host if you tell it', function() {

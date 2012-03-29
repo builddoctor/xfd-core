@@ -16,46 +16,49 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 describe('hudson', function () {
+  var url = document.location.hostname;
+
   beforeEach(function () {
     config = CONFIG;
     config.engine = null;
     config.init();
   });
 
-  it('should have a default url that hits our hudson dummy', function() {
-    expect(Hudson.url(config)).toEqual('http://localhost:8888/hudson/api/json?jsonp=?');
-  });
+  if (url != "") {
+    it('should have a default url that hits our hudson dummy', function() {
+      expect(Hudson.url(config)).toEqual('http://localhost:8888/hudson/api/json?jsonp=?');
+    });
 
-  it('should have a url with a different context root if you tell it', function() {
-    CONFIG.context="/harry";
-    expect(Hudson.url(config)).toEqual('http://localhost:8888/harry/api/json?jsonp=?');
-  });
+    it('should have a url with a different context root if you tell it', function() {
+      CONFIG.context="/harry";
+      expect(Hudson.url(config)).toEqual('http://localhost:8888/harry/api/json?jsonp=?');
+    });
 
-  it('should cope with chrome passing a trailing hash on the context', function() { 
-    CONFIG.context="/ci#";
-    expect(Hudson.url(config)).toEqual('http://localhost:8888/ci/api/json?jsonp=?');
-  });
+    it('should cope with chrome passing a trailing hash on the context', function() { 
+      CONFIG.context="/ci#";
+      expect(Hudson.url(config)).toEqual('http://localhost:8888/ci/api/json?jsonp=?');
+    });
 
-  it('should cope with chrome passing escaped paths hash on the context', function() { 
-    CONFIG.context="%2Fhudson";
-    expect(Hudson.url(config)).toEqual('http://localhost:8888/hudson/api/json?jsonp=?');
-  });
+    it('should cope with chrome passing escaped paths hash on the context', function() { 
+      CONFIG.context="%2Fhudson";
+      expect(Hudson.url(config)).toEqual('http://localhost:8888/hudson/api/json?jsonp=?');
+    });
+    
+    it('should have a url with a different port root if you tell it', function() {
+      CONFIG.port="8080";
+      expect(Hudson.url(config)).toEqual('http://localhost:8080/hudson/api/json?jsonp=?');
+    });
 
-  it('should have a url with a different port root if you tell it', function() {
-    CONFIG.port="8080";
-    expect(Hudson.url(config)).toEqual('http://localhost:8080/hudson/api/json?jsonp=?');
-  });
+    it('should have a url with a different host if you tell it', function() {
+      CONFIG.host="harry";
+      CONFIG.context="/"
+      expect(Hudson.url(config)).toEqual('http://harry:8888/api/json?jsonp=?');
+    });
 
-  it('should have a url with a different host if you tell it', function() {
-    CONFIG.host="harry";
-    CONFIG.context="/"
-    expect(Hudson.url(config)).toEqual('http://harry:8888/api/json?jsonp=?');
-  });
-
-  it('should put the username and password in the url if you give it', function() {
-    CONFIG.username="harpo";
-    CONFIG.password="swordfish";
-    expect(Hudson.url(config)).toEqual('http://harpo:swordfish@localhost:8888/hudson/api/json?jsonp=?');
-  });
-
+    it('should put the username and password in the url if you give it', function() {
+      CONFIG.username="harpo";
+      CONFIG.password="swordfish";
+      expect(Hudson.url(config)).toEqual('http://harpo:swordfish@localhost:8888/hudson/api/json?jsonp=?');
+    });
+  }
 });
