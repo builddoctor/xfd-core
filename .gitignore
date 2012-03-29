@@ -12,3 +12,5 @@ public/*.js
 target
 SpecRunner.html
 TEST-*.xml
+
+.jhw-cache/
